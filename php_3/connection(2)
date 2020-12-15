@@ -9,7 +9,7 @@ if ($link === false) {
 // Thực hiện tạo CSDL
 $sql = "CREATE DATABASE IF NOT EXISTS php4";
 if (mysqli_query($link, $sql)) {
-    echo "Tạo CSDL thành công!";
+    //echo "Tạo CSDL thành công!";
     // Thực hiện tạo bảng
     $sql2 = "CREATE TABLE IF NOT EXISTS php3.data (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -21,7 +21,7 @@ if (mysqli_query($link, $sql)) {
     `update_at` DATETIME NULL
     )";
 if (mysqli_query($link, $sql2)) {
-    echo "Tạo bảng thành công.";
+    //echo "Tạo bảng thành công.";
 } else {
     echo "ERROR $sql2. " . mysqli_error($link);
 }
