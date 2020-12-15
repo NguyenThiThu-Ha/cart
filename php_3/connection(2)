@@ -1,0 +1,35 @@
+<?php
+$link = mysqli_connect("localhost", "root", "");
+
+// Kiểm tra kết nối
+if ($link === false) {
+    die("ERROR: Kết nối thất bại. " . mysqli_connect_error());
+}
+
+// Thực hiện tạo CSDL
+$sql = "CREATE DATABASE IF NOT EXISTS php4";
+if (mysqli_query($link, $sql)) {
+    echo "Tạo CSDL thành công!";
+    // Thực hiện tạo bảng
+    $sql2 = "CREATE TABLE IF NOT EXISTS php4.data (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `title` VARCHAR(100) NULL ,
+    `description` TEXT NULL ,
+    `image` VARCHAR(200) NULL ,
+    `status` TEXT NULL ,
+    `create_at` DATETIME NULL ,
+    `update_at` DATETIME NULL
+    )";
+if (mysqli_query($link, $sql2)) {
+    echo "Tạo bảng thành công.";
+} else {
+    echo "ERROR $sql2. " . mysqli_error($link);
+}
+} else {
+    echo "ERROR $sql. " . mysqli_error($link);
+}
+
+
+// Đóng kết nối
+//mysqli_close($link);
+?>
